@@ -33,7 +33,9 @@ export default class DateUtils {
   ];
   static daysShortMap: string[] = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 
-  static getYearsMap
+  static getYearsMap = (currentYear: number) => {
+    return Array.from({ length: 21 }, (_, index) => currentYear - 10 + index);
+  };
 
   static getTodayTimestamp(): number {
     return (

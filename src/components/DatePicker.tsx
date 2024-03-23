@@ -12,7 +12,8 @@ import DateUtils, { Day } from "../utils/DateUtils";
 
 const DatePicker = ({ onChange }: { onChange?: (day: number) => void }) => {
   const [selectedDay, setSelectedDay] = useState<number>();
-  const [year, setYear] = useState(new Date().getFullYear());
+  const currentYear = new Date().getFullYear();
+  const [year, setYear] = useState(currentYear);
   const [month, setMonth] = useState(new Date().getMonth());
 
   const monthDetails = DateUtils.getMonthDetails(year, month);
@@ -63,7 +64,7 @@ const DatePicker = ({ onChange }: { onChange?: (day: number) => void }) => {
               {year}
             </Listbox.Button>
             <Listbox.Options className="max-h-56 overflow-y-auto space-y-1 absolute bg-white rounded-lg border border-slate-100 shadow-sm dark:border-gray-800 dark:shadow-gray-800 p-4 dark:bg-gray-700">
-              {DateUtils.yearsMap.map((year) => (
+              {DateUtils.getYearsMap(currentYear).map((year) => (
                 <Listbox.Option key={year} value={year}>
                   {({ selected, active }) => (
                     <div
@@ -143,7 +144,7 @@ const DatePicker = ({ onChange }: { onChange?: (day: number) => void }) => {
             className={cx([
               "w-10 h-10 flex items-center text-gray-800 dark:text-white font-medium justify-center rounded-lg hover:bg-gray-200 dark:hover:text-gray-500 cursor-pointer text-center",
               DateUtils.isCurrentDay(day) && "border border-gray-200",
-              selectedDay === day.timestamp && "bg-green-800 text-white",
+              selectedDay === day.timestamp && "bg-gray-800 text-white",
             ])}
             onClick={() => handleDayClick(day)}
           >
