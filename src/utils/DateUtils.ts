@@ -111,7 +111,12 @@ export default class DateUtils {
     let _date: number =
       (date < 0 ? prevMonthNumberOfDays + date : date % args.numberOfDays) + 1;
     let month: number = date < 0 ? -1 : date >= args.numberOfDays ? 1 : 0;
-    let timestamp: number = new Date(args.year, args.month, _date).getTime();
+
+    let timestamp: number = new Date(
+      args.year,
+      args.month + month,
+      _date
+    ).getTime();
     return {
       date: _date,
       day,
