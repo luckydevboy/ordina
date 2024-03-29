@@ -17,5 +17,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     onChange: (day: number) => console.log(day),
+    firstDayOfWeek: "Saturday",
   },
 };

@@ -8,15 +8,6 @@ export interface Day {
 
 export default class DateUtils {
   static oneDay: number = 60 * 60 * 24 * 1000;
-  static daysMap: string[] = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
   static monthsMap: string[] = [
     "January",
     "February",
@@ -31,7 +22,30 @@ export default class DateUtils {
     "November",
     "December",
   ];
-  static daysShortMap: string[] = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+
+  static daysMap(firstDayOfWeek = 0) {
+    const days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    const firstPart = days.slice(firstDayOfWeek);
+    const secondPart = days.slice(0, firstDayOfWeek);
+
+    return [...firstPart, ...secondPart];
+  }
+
+  static daysShortMap(firstDayOfWeek = 0) {
+    const days = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+    const firstPart = days.slice(firstDayOfWeek);
+    const secondPart = days.slice(0, firstDayOfWeek);
+
+    return [...firstPart, ...secondPart];
+  }
 
   static getYearsMap = (currentYear: number) => {
     return Array.from({ length: 21 }, (_, index) => currentYear - 10 + index);
@@ -51,7 +65,8 @@ export default class DateUtils {
 
   static getMonthDetails(
     year: number,
-    month: number
+    month: number,
+    firstDayOfWeek = 0
   ): {
     date: number;
     day: number;
@@ -60,6 +75,7 @@ export default class DateUtils {
     dayString: string;
   }[] {
     let firstDay: number = new Date(year, month).getDay();
+    firstDay = (firstDay - firstDayOfWeek + 7) % 7;
     let numberOfDays: number = this.getNumberOfDays(year, month);
     let monthArray: {
       date: number;
@@ -122,7 +138,7 @@ export default class DateUtils {
       day,
       month,
       timestamp,
-      dayString: this.daysMap[day],
+      dayString: this.daysMap()[day],
     };
   }
 

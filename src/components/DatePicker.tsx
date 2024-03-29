@@ -10,13 +10,37 @@ import { cx } from "class-variance-authority";
 import "../output.css";
 import DateUtils, { Day } from "../utils/DateUtils";
 
-const DatePicker = ({ onChange }: { onChange?: (day: number) => void }) => {
+const days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+type Props = {
+  onChange?: (day: number) => void;
+  firstDayOfWeek?:
+    | "Sunday"
+    | "Monday"
+    | "Tuesday"
+    | "Wednesday"
+    | "Thursday"
+    | "Friday"
+    | "Saturday";
+};
+
+const DatePicker = ({ onChange, firstDayOfWeek }: Props) => {
   const [selectedDay, setSelectedDay] = useState<number>();
   const currentYear = new Date().getFullYear();
   const [year, setYear] = useState(currentYear);
   const [month, setMonth] = useState(new Date().getMonth());
 
-  const monthDetails = DateUtils.getMonthDetails(year, month);
+  const firstDayOfWeekIndex = days.findIndex((day) => day === firstDayOfWeek);
+
+  const monthDetails = DateUtils.getMonthDetails(year, month, firstDayOfWeekIndex);
 
   const setYearHandler = (offset: number) => {
     setYear((prevYear) => prevYear + offset);
@@ -126,7 +150,7 @@ const DatePicker = ({ onChange }: { onChange?: (day: number) => void }) => {
 
       {/* Days of week */}
       <div className="flex items-center mt-4 mb-2">
-        {DateUtils.daysShortMap.map((day) => (
+        {DateUtils.daysShortMap(firstDayOfWeekIndex).map((day) => (
           <div
             key={day}
             className="w-10 text-center text-gray-500 dark:text-white/80"
