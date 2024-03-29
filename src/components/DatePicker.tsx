@@ -149,7 +149,7 @@ const DatePicker = ({ onChange, firstDayOfWeek }: Props) => {
       </div>
 
       {/* Days of week */}
-      <div className="flex items-center mt-4 mb-2">
+      <div className="flex items-center justify-center mt-4 mb-2">
         {DateUtils.daysShortMap(firstDayOfWeekIndex).map((day) => (
           <div
             key={day}
@@ -161,7 +161,7 @@ const DatePicker = ({ onChange, firstDayOfWeek }: Props) => {
       </div>
 
       {/* Days of month */}
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap justify-center">
         {monthDetails.map((day, index) => (
           <div
             key={index}
