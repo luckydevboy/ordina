@@ -51,7 +51,7 @@ const DatePicker = ({ onChange }: { onChange?: (day: number) => void }) => {
   return (
     <div className="font-nunito rounded-lg border border-slate-100 dark:border-none shadow-sm p-4 w-80 bg-white dark:bg-gray-700">
       {/* Navigator */}
-      <div className="flex items-center justify-center gap-x-4">
+      <div className="flex items-center justify-between">
         {/* previous month button */}
         <ChevronLeftIcon
           className="w-4 h-4 text-gray-800 dark:text-white cursor-pointer"
@@ -143,8 +143,10 @@ const DatePicker = ({ onChange }: { onChange?: (day: number) => void }) => {
             key={index}
             className={cx([
               "w-10 h-10 flex items-center text-gray-800 dark:text-white font-medium justify-center rounded-lg hover:bg-gray-200 dark:hover:text-gray-500 cursor-pointer text-center",
-              DateUtils.isCurrentDay(day) && "border border-gray-200",
-              selectedDay === day.timestamp && "bg-gray-800 text-white",
+              DateUtils.isCurrentDay(day) &&
+                "border border-gray-500 dark:border-gray-300",
+              selectedDay === day.timestamp &&
+                "bg-gray-400 dark:bg-gray-800 text-white hover:bg-gray-500 hover:dark:bg-gray-900 hover:dark:text-white",
             ])}
             onClick={() => handleDayClick(day)}
           >
