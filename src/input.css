@@ -7,6 +7,11 @@
     font-family: 'Nunito';
     src: url("./nunito.ttf");
   }
+
+  @font-face {
+    font-family: 'Dana';
+    src: url("./dana.woff2");
+  }
 }
 
 /* width */

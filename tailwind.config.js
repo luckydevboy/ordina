@@ -6,7 +6,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'nunito': ['Nunito']
+        'nunito': ['Nunito'],
+        'dana': ['Dana']
       }
     },
   },
