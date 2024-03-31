@@ -40,7 +40,11 @@ const DatePicker = ({ onChange, firstDayOfWeek }: Props) => {
 
   const firstDayOfWeekIndex = days.findIndex((day) => day === firstDayOfWeek);
 
-  const monthDetails = DateUtils.getMonthDetails(year, month, firstDayOfWeekIndex);
+  const monthDetails = DateUtils.getMonthDetails(
+    year,
+    month,
+    firstDayOfWeekIndex
+  );
 
   const setYearHandler = (offset: number) => {
     setYear((prevYear) => prevYear + offset);
