@@ -35,6 +35,13 @@ export const PrimaryLarge: Story = {
   },
 };
 
+export const PrimaryExtraSmall: Story = {
+  args: {
+    size: "xs",
+    variant: "primary",
+  },
+};
+
 export const SecondaryLarge: Story = {
   args: {
     size: "lg",
