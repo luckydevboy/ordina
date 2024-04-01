@@ -24,7 +24,7 @@ const button = cva(
       },
       circular: {
         true: "rounded-full px-0",
-        false: "rounded-md",
+        false: "",
       },
     },
     compoundVariants: [
@@ -53,11 +53,13 @@ const button = cva(
         circular: true,
         class: "w-10",
       },
+      { rounded: false, circular: false, class: "rounded-md" },
     ],
     defaultVariants: {
       variant: "primary",
       size: "lg",
       circular: false,
+      rounded: false,
     },
   }
 );
