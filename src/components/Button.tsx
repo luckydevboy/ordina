@@ -1,12 +1,8 @@
-import React, { ButtonHTMLAttributes, ReactElement } from "react";
+import React, { ButtonHTMLAttributes, ReactElement, cloneElement } from "react";
 import { VariantProps, cva } from "class-variance-authority";
 
 const button = cva(
-  [
-    "flex items-center justify-center gap-x-2",
-    "font-nunito",
-    "relative rounded-md",
-  ],
+  ["flex items-center justify-center gap-x-2", "font-nunito", "relative"],
   {
     variants: {
       variant: {
@@ -28,7 +24,7 @@ const button = cva(
       },
       circular: {
         true: "rounded-full px-0",
-        false: "",
+        false: "rounded-md",
       },
     },
     compoundVariants: [
@@ -61,6 +57,7 @@ const button = cva(
     defaultVariants: {
       variant: "primary",
       size: "lg",
+      circular: false,
     },
   }
 );
@@ -87,6 +84,14 @@ const Button = ({
   circular,
   ...props
 }: Props) => {
+  const renderIconWithClassName = () => {
+    if (icon) {
+      return cloneElement(icon, {
+        className: `${icon.props.className} flex-shrink-0`,
+      });
+    }
+  };
+
   return (
     <button
       className={button({ variant, size, rounded, circular, className })}
@@ -114,9 +119,9 @@ const Button = ({
           ></path>
         </svg>
       )}
-      {iconPosition === "start" && icon}
+      {iconPosition === "start" && renderIconWithClassName()}
       {children}
-      {iconPosition === "end" && icon}
+      {iconPosition === "end" && renderIconWithClassName()}
     </button>
   );
 };
