@@ -9,7 +9,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "tailwind": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
-    "chromatic": "npx chromatic --project-token=chpt_b4ab74ba3d3dc97"
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "author": {
     "name": "Mohammad Reza Ghasemi"

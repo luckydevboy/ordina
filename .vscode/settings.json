@@ -2,5 +2,6 @@
   "cSpell.words": [
     "headlessui",
     "heroicons"
-  ]
+  ],
+  "css.validate": false
 }
