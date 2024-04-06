@@ -14,6 +14,10 @@
   }
 }
 
+body {
+  @apply font-nunito
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;

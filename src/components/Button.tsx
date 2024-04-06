@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes, ReactElement, cloneElement } from "react";
 import { VariantProps, cva } from "class-variance-authority";
 
 const button = cva(
-  "flex items-center justify-center gap-x-2 font-nunito relative",
+  "flex items-center justify-center gap-x-2 relative",
   {
     variants: {
       variant: {
