@@ -1,5 +1,5 @@
 import { cx } from "class-variance-authority";
-import React, { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes } from "react";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;

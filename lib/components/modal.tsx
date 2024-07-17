@@ -2,7 +2,6 @@ import { FC, ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { createPortal } from "react-dom";
-import React from "react";
 
 import { useBodyScrollLock, useClickOutside, useKeyPress } from "../hooks";
 import { cx } from "class-variance-authority";
@@ -12,6 +11,12 @@ type Props = {
   children: ReactNode;
   onClose: () => void;
   showCloseButton?: boolean;
+};
+
+type SubComponents = {
+  Header: typeof Header;
+  Footer: typeof Footer;
+  Body: typeof Body;
 };
 
 const backdropVariants = {
@@ -26,12 +31,7 @@ const modalVariants = {
   exit: { scale: 0.8, opacity: 0 },
 };
 
-const Modal: ({
-  isOpen,
-  children,
-  onClose,
-  showCloseButton,
-}: Props) => React.ReactPortal = ({
+const Modal: FC<Props> & SubComponents = ({
   isOpen,
   children,
   onClose,
