@@ -22,7 +22,9 @@
     "tailwind": "npx tailwindcss -i ./lib/input.css -o ./lib/output.css --watch"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.5",
     "class-variance-authority": "^0.7.0",
+    "framer-motion": "^11.3.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

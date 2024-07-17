@@ -21,7 +21,6 @@
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": [
-    "lib/stories", "lib"],
+  "include": ["lib"],
   "references": [ { "path": "./tsconfig.node.json" } ]
 }
