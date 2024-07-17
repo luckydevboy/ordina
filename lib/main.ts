@@ -1,3 +1,2 @@
-export { Button } from './components/button'
-export { Input } from './components/input'
-export { Label } from './components/label'
+export { default as Button } from "./components/button.tsx";
+export { default as Input } from "./components/input";
