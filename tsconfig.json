@@ -21,6 +21,8 @@
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["lib"],
+  "include": [
+    "src/lib"
+  ],
   "references": [ { "path": "./tsconfig.node.json" } ]
 }

@@ -5,7 +5,7 @@
 @layer base {
   @font-face {
     font-family: 'Nunito';
-    src: url("./nunito.ttf");
+    src: url("nunito.ttf");
   }
 }
 
