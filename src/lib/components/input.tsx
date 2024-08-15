@@ -24,7 +24,7 @@ const Input = ({ label, id, className, helpText, error, ...props }: Props) => {
         <input
           id={id}
           className={cx(
-            "px-3 text-sm text-gray-dark outline-none h-full",
+            "px-3 text-sm text-gray-dark outline-none h-full w-full",
             className ?? "",
           )}
           {...props}
