@@ -1,11 +1,12 @@
 # Origin of The Name
 
-"Flow Kit" combines two concepts: "Flow" and "Kit." "Flow" suggests a smooth, seamless experience, 
-which aligns with the goal of a component library that enhances development efficiency and user experience. 
-It evokes the idea of fluidity in design and functionality, essential for React components that integrate well with Tailwind CSS and Vite. 
-"Kit" refers to a collection of tools or components, indicating that the product is a comprehensive set designed for developers. 
-This term conveys the idea of readiness and convenience, as it suggests that users have everything they need in one package 
-to build applications effectively. Together, "Flow Kit" implies a streamlined, efficient toolkit for developers using modern web technologies.
+"Act Tail" combines the words "Act" and "Tail." "Act" suggests action, performance, or functionality, 
+which aligns well with a component library designed for building interactive user interfaces using React. 
+It implies that the library enables developers to take action in their projects effectively. "Tail" refers 
+to "Tailwind," the popular CSS framework known for its utility-first approach. This connection indicates 
+that the library is designed to work seamlessly with Tailwind, enhancing the styling and layout capabilities 
+of React components. Together, "Act Tail" conveys a sense of dynamic functionality and stylish design, 
+making it a fitting name for a React component library that leverages Tailwind and Vite for modern web development.
 
 # React + TypeScript + Vite
 

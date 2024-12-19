@@ -1,12 +1,12 @@
 {
-  "name": "flowkit",
+  "name": "acttail",
   "version": "0.0.0",
   "type": "module",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/flowkit.es.js",
-      "require": "./dist/flowkit.umd.js"
+      "import": "./dist/acttail.es.js",
+      "require": "./dist/acttail.umd.js"
     },
     "./styles.css": {
       "require": "./dist/styles.css",

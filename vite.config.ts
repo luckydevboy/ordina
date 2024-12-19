@@ -15,8 +15,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: "src/index.ts",
-      name: "Flowkit",
-      fileName: (format) => `flowkit.${format}.js`,
+      name: "Act Tail",
+      fileName: (format) => `acttail.${format}.js`,
       formats: ["es", "umd", "cjs"],
     },
     rollupOptions: {
