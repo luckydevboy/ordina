@@ -1,12 +1,13 @@
 {
-  "name": "ordina",
+  "name": "vitro",
+  "private": true,
   "version": "0.0.0",
   "type": "module",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/ordina.es.js",
-      "require": "./dist/ordina.umd.js"
+      "import": "./dist/vitro.es.js",
+      "require": "./dist/vitro.umd.js"
     },
     "./styles.css": {
       "require": "./dist/styles.css",

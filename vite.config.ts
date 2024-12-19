@@ -7,13 +7,16 @@ import { peerDependencies } from "./package.json";
 export default defineConfig({
   plugins: [
     react(),
-    dts({ exclude: ["**/*.stories.ts", "**/*.test.ts"] }),
+    dts({
+      insertTypesEntry: true,
+      exclude: ["**/*.stories.ts", "**/*.test.ts"],
+    }),
   ],
   build: {
     lib: {
       entry: "src/index.ts",
-      name: "Ordina",
-      fileName: (format) => `ordina.${format}.js`,
+      name: "Vitro",
+      fileName: (format) => `vitro.${format}.js`,
       formats: ["es", "umd", "cjs"],
     },
     rollupOptions: {
