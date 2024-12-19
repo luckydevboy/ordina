@@ -15,8 +15,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: "src/index.ts",
-      name: "Vitro",
-      fileName: (format) => `vitro.${format}.js`,
+      name: "Flowkit",
+      fileName: (format) => `flowkit.${format}.js`,
       formats: ["es", "umd", "cjs"],
     },
     rollupOptions: {

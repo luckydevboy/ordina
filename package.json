@@ -1,12 +1,12 @@
 {
-  "name": "vitro",
+  "name": "flowkit",
   "version": "0.0.0",
   "type": "module",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/vitro.es.js",
-      "require": "./dist/vitro.umd.js"
+      "import": "./dist/flowkit.es.js",
+      "require": "./dist/flowkit.umd.js"
     },
     "./styles.css": {
       "require": "./dist/styles.css",

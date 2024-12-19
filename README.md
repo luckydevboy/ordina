@@ -1,12 +1,11 @@
 # Origin of The Name
 
-The name "Vitro" is derived from the Latin word "vitrum," meaning "glass." 
-This connection suggests clarity, transparency, and a polished finish, 
-which aligns well with a component library designed for building user interfaces. 
-The name evokes a sense of modernity and sophistication, reflecting the sleek and efficient nature of a 
-React component library that utilizes Tailwind CSS and Vite for rapid development. 
-The association with glass can also imply versatility and the ability to create a wide range of visual styles, 
-enhancing the appeal of the library to developers seeking customizable solutions.
+"Flow Kit" combines two concepts: "Flow" and "Kit." "Flow" suggests a smooth, seamless experience, 
+which aligns with the goal of a component library that enhances development efficiency and user experience. 
+It evokes the idea of fluidity in design and functionality, essential for React components that integrate well with Tailwind CSS and Vite. 
+"Kit" refers to a collection of tools or components, indicating that the product is a comprehensive set designed for developers. 
+This term conveys the idea of readiness and convenience, as it suggests that users have everything they need in one package 
+to build applications effectively. Together, "Flow Kit" implies a streamlined, efficient toolkit for developers using modern web technologies.
 
 # React + TypeScript + Vite
 
