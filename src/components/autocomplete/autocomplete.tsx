@@ -1,55 +1,97 @@
-import { ChangeEvent, useState } from "react";
+import { InputHTMLAttributes, useEffect, useState } from "react";
 import { cx } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
-
-const results = [
-  { type: "company", text: "Facebook" },
-  {
-    type: "organization",
-    text: "FasTrak",
-    subtitle: "Government office, San Francisco, CA",
-  },
-  { type: "text", text: "face" },
-  { type: "text", text: "facebook messenger" },
-  { type: "text", text: "facebook stock" },
-  { type: "television", text: "Faces of COVID", subtitle: "TV program" },
-  { type: "musician", text: "Faces", subtitle: "Rock band" },
-  { type: "television", text: "Faces of Death", subtitle: "Film series" },
-];
+import "./loader.css";
+import { useDebounce } from "use-debounce";
 
 type Props = {
   className?: string;
-};
+  searchField: string;
+  apiUrl: string;
+  resultsLength?: number;
+} & InputHTMLAttributes<HTMLInputElement>;
 
-const Autocomplete = ({ className }: Props) => {
-  const [resultIsOpen, setResultIsOpen] = useState(false);
-  const [value, setValue] = useState("");
+const Autocomplete = ({
+  className,
+  value,
+  searchField,
+  apiUrl,
+  resultsLength = 10,
+  ...restProps
+}: Props) => {
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [results, setResults] = useState([]);
+  const [debouncedValue] = useDebounce(value, 300);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
+  const fetchSearch = async () => {
+    setIsLoading(true);
+
+    try {
+      const res = await fetch(apiUrl);
+      const data = await res.json();
+      setResults(data);
+    } catch (error: any) {
+      setError(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (debouncedValue) fetchSearch();
+  }, [debouncedValue]);
+
+  const renderContent = () => {
+    if (isLoading) {
+      return <li className="loader mx-auto" />;
+    }
+
+    if (error) {
+      return <li className="text-red-500">{error?.toString()}</li>;
+    }
+
+    return (
+      <>
+        {results.length ? (
+          results.map((result, index) => (
+            <li className="text-gray-800" key={result[searchField] + index}>
+              {result[searchField]}
+            </li>
+          ))
+        ) : (
+          <li className="text-gray-800">No results found</li>
+        )}
+      </>
+    );
   };
 
   return (
-    <div>
+    <div className="relative">
       <input
         type="text"
         className={twMerge(
           cx(
-            "bg-white shadow-md border border-gray-100 outline-none " +
-              "rounded-md px-4 h-12 w-full text-gray-800",
+            "bg-white border-x border-t border-gray-200 outline-none " +
+              "rounded-x-xl rounded-t-xl px-4 h-12 w-full text-gray-800",
+            !value && "border rounded-xl",
             className,
           ),
         )}
         value={value}
-        onChange={handleChange}
+        {...restProps}
       />
 
-      {resultIsOpen && (
-        <ul>
-          {results.map((result, index) => (
-            <li key={result.text + index}></li>
-          ))}
-        </ul>
+      {value && (
+        <>
+          <hr className="mx-4" />
+          <ul
+            className="p-4 rounded-x-xl rounded-b-xl bg-white border-x
+            border-b border-gray-200 absolute w-full space-y-2"
+          >
+            {renderContent()}
+          </ul>
+        </>
       )}
     </div>
   );

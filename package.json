@@ -65,5 +65,8 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
+  },
+  "dependencies": {
+    "use-debounce": "^10.0.4"
   }
 }
